@@ -1,7 +1,9 @@
-@import 'ui';
-.boxing {
-    background-color:$color-1;
-        .title{
-            color:red;
-        }
-}
+@import './mixins/mixins.scss';
+@import './ui-kit/colors.scss';
+@import './ui-kit/text/heading.scss';
+@import './ui-kit/text/paragraph.scss';
+@import './ui-kit/buttons/btn.scss';
+@import './ui-kit/buttons/btn_type1.scss';
+@import './ui-kit/buttons/btn_type3.scss';
+@import './modules/page/page.scss';
+@import './modules/header/header.scss';

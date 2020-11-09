@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+        .logo{
+            margin-top: 48px;
+        }
+        .btn{
+            @include size(236px, 48px);
+            margin-top: 48px;
+        }
+}

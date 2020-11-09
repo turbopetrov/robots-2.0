@@ -1,0 +1,28 @@
+section.factory-section
+    .factory-section__container
+        .factory-section__title-block.grid-item
+            h2.heading_md.factory-section__heading.
+                Производство
+        .factory-section__radio-block.grid-item
+            include ../../utils/radio.pug
+            +radio("Тип биоробота", "FrontEnd", "Design")
+            +radio("Стабилизатор", "Male", "Female")
+        .factory-section__parts-block.grid-item
+            include ../../utils/parts.pug
+            +parts("../src/img/processor-s.png")
+            +parts("../src/img/processor-s.png")
+            +parts("../src/img/processor-inactive.png")
+            +parts("../src/img/processor-unavilable.png")
+            +parts("../src/img/robotHand_s.png")
+            +parts("../src/img/robotHand_inactiv.png")
+            +parts("../src/img/robotHand-unavilable.png")
+            +parts("../src/img/robotHand-unavilable.png")
+            +parts("../src/img/face_inactive.png")
+        .factory-section__img-block.grid-item
+            img.factory-section__robot-img(src="../src/img/robot_inactive.png" alt="Your biorobot")
+        .factory-section__btn-block.grid-item
+            button.btn.btn_type3_disable.factory-section__btn.
+                Произвести за 10 монет
+        .factory-section__message-block.grid-item
+            p.paragraph_xs.factory-section__message.
+                Для производства биоробота не хватает 2 биомеханизма, 3 процессора и души

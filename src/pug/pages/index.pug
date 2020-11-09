@@ -1,7 +1,16 @@
 doctype html
 html(lang="en")
     head     
-        title Test   
-    body(class = 'boxing')
-        h1(class = 'title') test pug page     
+        title Biorobots-2.0  
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,500&display=swap" rel="stylesheet") 
+    body.page(style="background: radial-gradient(82.33% 70.44% at 50% 0%, #26394D 0%, #212529 100%) no-repeat;")
+        .container_wide
+            include ../includes/modules/header.pug    
+            .container_slim
+                include ../includes/modules/title-section.pug
+                include ../includes/modules/wallet-section.pug
+                include ../includes/modules/shop-section.pug
+                include ../includes/modules/storage-section.pug
+                include ../includes/modules/factory-section.pug
+       
     

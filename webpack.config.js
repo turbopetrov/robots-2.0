@@ -80,7 +80,7 @@ let conf = {
             filename: 'css/styles.css'
           }
         ),
-      new CleanWebpackPlugin(),
+      // new CleanWebpackPlugin(),
       new CopyWebpackPlugin (
         {
           patterns: [

@@ -1,0 +1,12 @@
+.btn{
+    outline: none;
+    @include size(200,48);
+    border: 2px solid; 
+    border-radius: 60px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;    
+    text-align: center;
+    cursor: pointer;
+}
