@@ -1,0 +1,33 @@
+.factory-section__grid-container {	
+	max-width: 100%;	
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas: 
+		"title title title"
+		"radio parts robot"
+		"btn message robot"
+		;
+}
+.factory-section__heading{	
+	grid-area: title;
+ }
+.factory-section__radio-block{	
+	grid-area: radio;
+}
+.factory-section__parts-block{	
+	grid-area: parts;
+}
+.factory-section__img-block{	
+	grid-area: robot;
+}
+.factory-section__btn-block{	
+	grid-area: btn;
+}
+.factory-section__message-block{	
+	grid-area: message;
+}
+@import './_radio-block';
+@import './_parts-block';
+@import './_btn-block';
+@import './_img-block';
+@import './_message-block';

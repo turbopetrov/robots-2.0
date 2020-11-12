@@ -1,0 +1,8 @@
+.factory-section__radio-block{
+    display: flex;
+    flex-direction: column;
+    margin-top: 65px;
+        .factory-section__radio + .factory-section__radio {
+            margin-top: 35px;
+        }
+}

@@ -1,0 +1,17 @@
+.factory-section__parts-block{
+    display: flex;
+    max-width: 232px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 65px;
+        .parts__item{
+            display: flex;
+            outline: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+}

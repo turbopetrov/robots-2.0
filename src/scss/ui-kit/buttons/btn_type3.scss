@@ -2,15 +2,17 @@
     border-color:$orange-color;
     color: $white-color;
     background-color: transparent;
-    transition: all .2s;    
+    transition: all .2s;
+        &:hover{
+            color:$white-color;
+            background-color: $orange-color;
+            border-color: $orange-color;
+        }    
 }
 .btn_type3_disable{
     border-color: $grey-color;
     color: $light-grey-color;
     background:transparent;
+    cursor: not-allowed;
 }
-.btn_type3_normal:hover{
-    color: white;
-    background-color: $orange-color;
-    border-color: $orange-color;
-}
+
