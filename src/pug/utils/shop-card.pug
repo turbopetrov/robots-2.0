@@ -1,7 +1,8 @@
 mixin shop-card(card__url="#", card__title="Товар", card__cost="Несколько")
-    .shop-card__img-container
-        img.shop-card__img(src= card__url, alt= card__title)
-    h3.shop-card__heading.heading_sm= card__title    
-    p.shop-card__paragraph.paragraph_sm= "Стоимость "+card__cost+" монет"        
-    button.btn.btn_type1_normal.shop-card__btn.
-        Установить
+    .shop-card
+        .shop-card__img-container
+            img.shop-card__img(src= card__url, alt= card__title)
+        h3.shop-card__heading.heading_sm= card__title    
+        p.shop-card__paragraph.paragraph_sm= "Стоимость "+card__cost+" монет"        
+        button.btn.btn_type1_normal.shop-card__btn.
+            Установить

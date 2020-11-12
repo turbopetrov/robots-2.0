@@ -2,4 +2,14 @@
     border-color: $orange-color;
     color: $white-color;
     background: $orange-grad;
+    transition: .3s;
+        &:hover{
+            background: $orange-grad_dark;
+        }
     }
+.btn_type1_disable{
+    border-color: $grey-color;
+    color: $light-grey-color;
+    background: $grey-color;
+    cursor: not-allowed;
+}

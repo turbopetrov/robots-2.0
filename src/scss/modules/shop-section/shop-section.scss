@@ -1,0 +1,11 @@
+.shop-section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+        .shop-section__card-block{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+                @import './_shop-card';    
+        }
+}
