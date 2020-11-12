@@ -58,7 +58,7 @@ let conf = {
             {
               loader: 'file-loader',
               options: {
-                name: '[path][name].[ext]'
+                name: '/img/[name].[ext]'
               }
             },
             {loader: 'img-loader'},

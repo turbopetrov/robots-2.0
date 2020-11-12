@@ -3,15 +3,15 @@ section.wallet-section
         h2.wallet-section__title.heading_md.
             Кошелек криптовалют
     .wallet-section__coins-block
-        ul.coins
-            
-        .paragraph_md.
-            <span class="wallet-section__coins-quantity">10</span>
-                biorobo монет
+        .coins-block__coins
+            -let coinsQuantity = "45";
+            -for (let i=0; i<coinsQuantity; i++)               
+                img.coins-block__coins-item(src="../src/img/coin.png", alt="Монетка")            
+        .paragraph_md.coins-block__coins-quantity= coinsQuantity+" биоробо монет"         
     .wallet-section__action-block
         button.wallet-section__btn.
             Нацыганить
-        label.checkbox.wallet-section__checkbox 
+        label.checkbox__label.checkbox.wallet-section__checkbox 
             input.checkbox__input(type="checkbox")
             span.checkbox__fake-checkbox
             span.checkbox__text.

@@ -1,0 +1,19 @@
+.wallet-section__action-block{
+    display: flex;
+    margin-top: 43px;    
+}
+.wallet-section__btn{
+    padding: 0;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $orange-color;
+    background-color: transparent;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    @include text-size(16px, 24px);
+    color: $orange-color;
+    cursor: pointer;
+    margin-right: 23px;
+}
+@import '../../ui-kit/checkbox/checkbox.scss';
