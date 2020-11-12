@@ -1,0 +1,12 @@
+.storage-section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    .storage-section__card-block{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 60px;
+    }    
+}
+@import './_storage-card';

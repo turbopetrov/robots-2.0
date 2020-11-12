@@ -1,6 +1,7 @@
 mixin storage-card(card__title="Товар", card__cost="Несколько", card__values="0")    
-    h3.storage-card__heading.heading_sm= card__title    
-    p.storage-card__paragraph.paragraph_sm= "Стоимость "+card__cost+" монет"
-    h3.storage-card__heading.heading_sm= card__values+" шт"       
-    button.btn.btn_type2_normal.storage-card__btn.
-        Продать
+    .storage-card
+        h3.storage-card__heading.heading_sm= card__title    
+        p.storage-card__paragraph.paragraph_sm= "Стоимость "+card__cost+" монет"
+        h3.storage-card__heading.heading_sm= card__values+" шт"       
+        button.btn.btn_type2_normal.storage-card__btn.
+            Продать
