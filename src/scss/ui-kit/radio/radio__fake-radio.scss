@@ -1,0 +1,19 @@
+.radio__fake-radio{
+    display: block;
+    @include size(22px,22px);
+    border: 2px solid $parag-color;
+    border-radius: 50%;
+    position: relative;
+        &:before{
+            content: "";
+            @include size(16px,16px);
+            border-radius: 50%;
+            background-color: $orange-color;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: .3s;
+            }
+        }

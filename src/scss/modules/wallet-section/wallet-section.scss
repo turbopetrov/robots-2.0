@@ -1,0 +1,12 @@
+.wallet-section{
+    padding-top: 110px;
+    display: flex;
+    flex-direction: column;
+    .wallet-section__coins-block{
+        margin-top: 60px;
+    }  
+    .walletSection__actionBlock{
+        display: flex;
+        margin-top: 43px;    
+    }
+}

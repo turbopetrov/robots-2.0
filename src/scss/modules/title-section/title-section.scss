@@ -1,0 +1,23 @@
+.title-section{
+    display: flex;
+    padding-top: 100px;
+    justify-content: space-between;
+}
+.title-section__text-block{
+    display: flex;
+    flex-direction: column;
+}
+.title-section__img-block{
+    position: relative;
+}
+.title-section__img{
+    position: absolute;
+    top: 0;
+    right:-100px;
+}
+.titleS-section__title{
+    max-width: 470px;
+}
+.title-section__paragraph{
+    margin-top: 23px;
+}

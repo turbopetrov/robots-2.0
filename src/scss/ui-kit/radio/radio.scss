@@ -1,0 +1,16 @@
+@import "./radio__fake-radio.scss";
+@import "./radio__input.scss";
+@import "./radio__title.scss";
+.radio__item{
+    display: flex;
+        .radio__label{
+            display: flex;            
+        }
+        .radio__label + .radio__label {
+            margin-left:35px;
+        }         
+        .radio__name{
+            align-self: center;
+            margin-left: 12px;
+        }
+}
