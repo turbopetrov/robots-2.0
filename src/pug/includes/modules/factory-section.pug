@@ -9,15 +9,16 @@ section.factory-section
             +radio("Стабилизатор", "Male", "Female")
         .factory-section__parts-block
             include ../../utils/parts.pug
-            +parts("../src/img/processor-s.png")
-            +parts("../src/img/processor-s.png")
-            +parts("../src/img/processor-inactive.png")
-            +parts("../src/img/processor-unavilable.png")
-            +parts("../src/img/robotHand_s.png")
-            +parts("../src/img/robotHand_inactiv.png")
-            +parts("../src/img/robotHand-unavilable.png")
-            +parts("../src/img/robotHand-unavilable.png")
-            +parts("../src/img/face_inactive.png")
+            +parts("#1","_active")
+            +parts("#1","_active")
+            +parts("#1","_active")
+            +parts("#1","_disable")
+            +parts("#2","_active")
+            +parts("#2","_active")
+            +parts("#2","_active")
+            +parts("#2","_disable")
+            +parts("#3","_active")
+            
         .factory-section__img-block
             img.factory-section__robot-img(src="../src/img/robot_inactive.png" alt="Your biorobot")
         .factory-section__btn-block

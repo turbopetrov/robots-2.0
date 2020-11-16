@@ -15,8 +15,11 @@
     @include size(24px, 24px);
     border: 1px solid $white-color;
     margin-right: 12px;
-    position: relative;
-    
+    position: relative; 
+    transition: .2s;   
+        &:hover{
+            border-color: $grey-color;
+        }
 }
 .checkbox__input{
 display: none;

@@ -1,3 +1,10 @@
-mixin parts(img__url)
-    button.parts__item
-        img(src=img__url, alt="Деталь")
+mixin parts(svg__id, parts__disable="")
+    label.parts__item
+            input.checkbox__input(type="checkbox")
+            span.checkbox__fake-checkbox(class= parts__disable)
+                include ./parts__img.pug
+                +robo-part(svg__id)
+                
+
+   
+    
