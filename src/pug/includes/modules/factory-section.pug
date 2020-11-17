@@ -5,8 +5,8 @@ section.factory-section
                 Производство
         .factory-section__radio-block
             include ../../utils/radio.pug
-            +radio("Тип биоробота", "FrontEnd", "Design")
-            +radio("Стабилизатор", "Male", "Female")
+            +radio("Тип биоробота", "type", "FrontEnd", "Design")
+            +radio("Стабилизатор", "gender", "Male", "Female")
         .factory-section__parts-block
             include ../../utils/parts.pug
             +parts("#1","_active")
@@ -20,7 +20,7 @@ section.factory-section
             +parts("#3","_active")
             
         .factory-section__img-block
-            img.factory-section__robot-img(src="../src/img/robot_inactive.png" alt="Your biorobot")
+            img.factory-section__robot-img(src="./img/robot_inactive.png" alt="Your biorobot")
         .factory-section__btn-block
             button.btn.btn_type3_disable.factory-section__btn.
                 Произвести за 10 монет

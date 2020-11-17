@@ -4,21 +4,22 @@ let CopyWebpackPlugin = require('copy-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-let conf = {    
-    entry: {
+let conf = { 
+    context: path.resolve(__dirname, 'src'),   
+    entry: {      
       app:[ 
-    './src/js/index.js',
-    './src/scss/style.scss',    
+    './js/index.js',
+    './scss/style.scss',    
       ]
     },
     output:{
-      path:  path.resolve(__dirname, 'dist'),
-      filename: 'js/scripts.js',
-      publicPath: '/dist',
+      path:  path.resolve(__dirname, './dist'),
+      filename: 'scripts.js',
+      publicPath: './',
     },
-    // devServer: {
-    //   contentBase: "./html", 
-    // },
+    devServer: {
+      contentBase: "dist/", 
+    },
     module: {
       rules: [
         //pug
@@ -43,12 +44,10 @@ let conf = {
           use: [
             MiniCssExtractPlugin.loader,
             {
-              loader: "css-loader",
-              options: {sourceMap: true} 
+              loader: "css-loader",              
             },
             {
-              loader: "sass-loader",
-              options: {sourceMap: true}
+              loader: "sass-loader",              
             },
           ]
         },     
@@ -58,7 +57,7 @@ let conf = {
             {
               loader: 'file-loader',
               options: {
-                name: '/img/[name].[ext]'
+                name: '[path][name].[ext]'
               }
             },
             {loader: 'img-loader'},
@@ -71,20 +70,20 @@ let conf = {
       new HtmlWebpackPlugin(
         {
         filename: "index.html",
-        template: './src/pug/pages/index.pug'
+        template: './pug/pages/index.pug'
         }
       ),
       //pug end
       new MiniCssExtractPlugin(
           {
-            filename: 'css/styles.css'
+            filename: 'styles.css'
           }
         ),
       // new CleanWebpackPlugin(),
       new CopyWebpackPlugin (
         {
           patterns: [
-            {from: './src/img', to: 'img'},
+            {from: './img', to: 'img'},
           ]
         }
       ) 

@@ -1,8 +1,8 @@
 {
   "name": "robots",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "study projects",
-  "main": "index.js",
+  "main": "src/js/index.js",
   "scripts": {
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
