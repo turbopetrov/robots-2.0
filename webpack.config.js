@@ -1,9 +1,9 @@
-let path = require("path");
+let path = require('path');
 let imagemin = require('imagemin-webpack-plugin');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+let { CleanWebpackPlugin } = require('clean-webpack-plugin');
+let HtmlWebpackPlugin = require('html-webpack-plugin')
 let conf = { 
     context: path.resolve(__dirname, 'src'),   
     entry: {      
@@ -18,23 +18,21 @@ let conf = {
       publicPath: './',
     },
     devServer: {
-      contentBase: "dist/", 
+      contentBase: 'dist/', 
     },
     module: {
-      rules: [
-        //pug
+      rules: [        
         {
           test: /\.pug$/,
           loaders: [
             {
-              loader: "pug-loader",
+              loader: 'pug-loader',
               options: {
-                "pretty":true
+                'pretty':true
               }
             }
           ]
-        },
-        //pug end
+        },      
         {
           test:/\.js$/,
           loader: 'babel-loader'
@@ -44,10 +42,10 @@ let conf = {
           use: [
             MiniCssExtractPlugin.loader,
             {
-              loader: "css-loader",              
+              loader: 'css-loader',              
             },
             {
-              loader: "sass-loader",              
+              loader: 'sass-loader',              
             },
           ]
         },     
@@ -65,30 +63,26 @@ let conf = {
         },
       ],
     },
-    plugins:[
-      //pug
+    plugins:[      
       new HtmlWebpackPlugin(
         {
-        filename: "index.html",
+        filename: 'index.html',
         template: './pug/pages/index.pug'
         }
-      ),
-      //pug end
+      ),      
       new MiniCssExtractPlugin(
           {
             filename: 'styles.css'
           }
         ),
-      // new CleanWebpackPlugin(),
+      new CleanWebpackPlugin(),
       new CopyWebpackPlugin (
         {
           patterns: [
             {from: './img', to: 'img'},
           ]
         }
-      ) 
-         
-            ],
-   
+      )         
+            ],   
 }
 module.exports = conf;
