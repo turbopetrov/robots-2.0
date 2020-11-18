@@ -1,19 +1,19 @@
-.btn_type2_normal{
-    width: 200px;
-    border-color: $blue-grad;
-    color: $blue;
-    background:transparent;
-    transition: all .2s;
-        &:hover{
-            border-color: $blue;
-            color: $dark;
-            background-color: $blue;
-            box-shadow: 0px 6px 30px -8px $blue;
-        }
+.btn_type2_normal {
+  width: 200px;
+  color: $blue;
+  background: transparent;
+  border-color: $blue-grad;
+  transition: all 0.2s;
+  &:hover {
+    color: $dark;
+    background-color: $blue;
+    border-color: $blue;
+    box-shadow: 0px 6px 30px -8px $blue;
+  }
 }
-.btn_type2_disable{
-    border-color: $grey-color;
-    color: $light-grey-color;
-    background:transparent;
-    cursor: not-allowed;
+.btn_type2_disable {
+  color: $light-grey-color;
+  background: transparent;
+  border-color: $grey-color;
+  cursor: not-allowed;
 }

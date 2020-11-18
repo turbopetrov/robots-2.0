@@ -1,18 +1,17 @@
-.btn_type3_normal{
-    border-color:$orange-color;
+.btn_type3_normal {
+  color: $white-color;
+  background-color: transparent;
+  border-color: $orange-color;
+  transition: all 0.2s;
+  &:hover {
     color: $white-color;
-    background-color: transparent;
-    transition: all .2s;
-        &:hover{
-            color:$white-color;
-            background-color: $orange-color;
-            border-color: $orange-color;
-        }    
+    background-color: $orange-color;
+    border-color: $orange-color;
+  }
 }
-.btn_type3_disable{
-    border-color: $grey-color;
-    color: $light-grey-color;
-    background:transparent;
-    cursor: not-allowed;
+.btn_type3_disable {
+  color: $light-grey-color;
+  background: transparent;
+  border-color: $grey-color;
+  cursor: not-allowed;
 }
-

@@ -1,30 +1,30 @@
-.action-block__checkbox-label{
-    display: flex;
+.action-block__checkbox-label {
+  display: flex;
 }
-.action-block__checkbox-text{
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
-    @include text-size(16px, 150%);
-    color: $white-color;
+.action-block__checkbox-text {
+  color: $white-color;
+  font-weight: 500;
+  font-family: Montserrat;
+  font-style: normal;
+  @include text-size(16px, 150%);
 }
-.wallet-section__action-block{
-    display: flex;
-    margin-top: 43px;    
+.wallet-section__action-block {
+  display: flex;
+  margin-top: 43px;
 }
-.action-block__btn{
-    padding: 0;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid $orange-color;
-    background-color: transparent;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
-    @include text-size(16px, 24px);
-    color: $orange-color;
-    cursor: pointer;
-    margin-right: 23px;
+.action-block__btn {
+  margin-right: 23px;
+  padding: 0;
+  color: $orange-color;
+  font-weight: 500;
+  font-family: Montserrat;
+  font-style: normal;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 1px solid $orange-color;
+  outline: none;
+  cursor: pointer;
+  @include text-size(16px, 24px);
 }
 
-@import '../../ui-kit/checkbox/checkbox.scss';
+@import "../../ui-kit/checkbox/checkbox.scss";

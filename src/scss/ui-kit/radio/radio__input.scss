@@ -1,6 +1,6 @@
-.radio__input{
-    display: none;
+.radio__input {
+  display: none;
 }
-.radio__input:checked ~ .radio__fake-radio::before{
-    opacity: 1; 
-}  
+.radio__input:checked ~ .radio__fake-radio::before {
+  opacity: 1;
+}

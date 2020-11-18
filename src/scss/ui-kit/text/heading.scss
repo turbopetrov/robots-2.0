@@ -1,24 +1,24 @@
-%heading{
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    color: $white-color;
-    margin: 0;
-    padding: 0;
+%heading {
+  margin: 0;
+  padding: 0;
+  color: $white-color;
+  font-weight: 600;
+  font-family: Montserrat;
+  font-style: normal;
 }
-.heading_xl{
-    @extend %heading;
-    @include text-size(56px, 129%);
+.heading_xl {
+  @extend %heading;
+  @include text-size(56px, 129%);
 }
-.heading_md{
-    @extend %heading;
-    @include text-size(32px, 125%);
+.heading_md {
+  @extend %heading;
+  @include text-size(32px, 125%);
 }
-.heading_sm{
-    @extend %heading;
-    @include text-size(20px, 32px);
+.heading_sm {
+  @extend %heading;
+  @include text-size(20px, 32px);
 }
-.heading_xs{
-    @extend %heading;
-    @include text-size(14px, 20px);
+.heading_xs {
+  @extend %heading;
+  @include text-size(14px, 20px);
 }

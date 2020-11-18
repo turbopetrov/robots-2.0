@@ -1,18 +1,18 @@
-.wallet-section__coins-block{
-    margin-top: 60px;
-    .coins-block__coins{    
-        display: flex; 
-        max-width: 460px;
-        flex-wrap: wrap; 
-        .coins-block__coins-item{
-            margin-bottom: 5px;
-            margin-left: -7px;
-        }
-        &:nth-child(49n+1) {   
-            margin-left: 0;
-        }   
+.wallet-section__coins-block {
+  margin-top: 60px;
+  .coins-block__coins {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 460px;
+    .coins-block__coins-item {
+      margin-bottom: 5px;
+      margin-left: -7px;
     }
-    .coins-block__coins-quantity{
-        margin-top: 43px;
+    &:nth-child(49n + 1) {
+      margin-left: 0;
     }
-}  
+  }
+  .coins-block__coins-quantity {
+    margin-top: 43px;
+  }
+}

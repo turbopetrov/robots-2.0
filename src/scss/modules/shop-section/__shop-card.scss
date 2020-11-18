@@ -1,25 +1,25 @@
-.shop-card{
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 236px;
+  .shop-card__img-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 236px;
-        .shop-card__img-container{    
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            @include size(236px, 128px);
-            margin-top: 60px;
-                .shop-card__img{
-                @include size(100%, auto);  
-            }
-        }        
-        .shop-card__heading{
-            margin-top: 25px;
-        }
-        .shop-card__paragraph{
-            margin-top: 5px;
-        }
-        .shop-card__btn{
-            margin-top: 36px;            
-        }
+    justify-content: center;
+    margin-top: 60px;
+    @include size(236px, 128px);
+    .shop-card__img {
+      @include size(100%, auto);
+    }
+  }
+  .shop-card__heading {
+    margin-top: 25px;
+  }
+  .shop-card__paragraph {
+    margin-top: 5px;
+  }
+  .shop-card__btn {
+    margin-top: 36px;
+  }
 }

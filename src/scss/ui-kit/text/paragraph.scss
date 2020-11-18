@@ -1,24 +1,24 @@
-%paragraph{
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    color: $parag-color;
-    margin: 0;
-    padding: 0;
+%paragraph {
+  margin: 0;
+  padding: 0;
+  color: $parag-color;
+  font-weight: 600;
+  font-family: Montserrat;
+  font-style: normal;
 }
-.paragraph_xl{
-    @extend %paragraph;
-    @include text-size(24px, 133%);
+.paragraph_xl {
+  @extend %paragraph;
+  @include text-size(24px, 133%);
 }
-.paragraph_md{
-    @extend %paragraph;
-    @include text-size(24px, 100%);
+.paragraph_md {
+  @extend %paragraph;
+  @include text-size(24px, 100%);
 }
-.paragraph_sm{
-    @extend %paragraph;
-    @include text-size(16px, 150%);
+.paragraph_sm {
+  @extend %paragraph;
+  @include text-size(16px, 150%);
 }
-.paragraph_xs{
-    @extend %paragraph;
-    @include text-size(12px, 133%);
+.paragraph_xs {
+  @extend %paragraph;
+  @include text-size(12px, 133%);
 }

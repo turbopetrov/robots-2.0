@@ -1,21 +1,21 @@
 .page {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 40px;
+  .container_wide {
     display: flex;
-    justify-content: center;
-    padding-bottom: 40px;
-        .container_wide{
-            display: flex;    
-            flex-direction: column;
-            @include size(1016px, 100%);        
-            .container_slim{
-                display: flex;    
-                flex-direction: column;
-                @include size(754px, 100%);
-                align-self: center;
-                justify-content: space-between;
-            }
-        }    
+    flex-direction: column;
+    @include size(1016px, 100%);
+    .container_slim {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      justify-content: space-between;
+      @include size(754px, 100%);
+    }
+  }
 }
