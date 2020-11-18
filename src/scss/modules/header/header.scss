@@ -1,12 +1,10 @@
 .header {
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
   width: 100%;
-  .logo {
-    margin-top: 48px;
-  }
+  height: 96px;
   .btn {
-    margin-top: 48px;
     @include size(236px, 48px);
   }
 }

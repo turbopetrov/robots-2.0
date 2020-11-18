@@ -80,7 +80,7 @@ let conf = {
       new CopyWebpackPlugin (
         {
           patterns: [
-            {from: './img', to: 'img'},
+            {from: './img', to: 'img'},            
           ]
         }
       )         
