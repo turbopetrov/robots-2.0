@@ -18,7 +18,8 @@ let conf = {
       publicPath: './',
     },
     devServer: {
-      contentBase: 'dist/', 
+      stats: 'errors-only',
+      publicPath: '/' 
     },
     module: {
       rules: [        
