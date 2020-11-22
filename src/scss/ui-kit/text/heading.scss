@@ -8,7 +8,7 @@
 }
 .heading_xl {
   @extend %heading;
-  @include text-size(56px, 129%);
+  @include text-size(56px, 72px);
 }
 .heading_md {
   @extend %heading;

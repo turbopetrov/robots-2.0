@@ -1,10 +1,10 @@
-let path = require('path');
-let imagemin = require('imagemin-webpack-plugin');
-let CopyWebpackPlugin = require('copy-webpack-plugin');
-let MiniCssExtractPlugin = require('mini-css-extract-plugin');
-let { CleanWebpackPlugin } = require('clean-webpack-plugin');
-let HtmlWebpackPlugin = require('html-webpack-plugin')
-let conf = { 
+const path = require('path');
+const imagemin = require('imagemin-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const conf = { 
     context: path.resolve(__dirname, 'src'),   
     entry: {      
       app:[ 
@@ -51,16 +51,16 @@ let conf = {
           ]
         },     
         {
-          test: /\.(png|gif|jpe?g)$/,
-          loaders:[
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[path][name].[ext]'
-              }
+          test: /\.(svg|png|gif|jpe?g)$/,
+          use: [{
+            loader: 'url-loader',
+            options: {
+              name: '[path][name].[ext]',
+              publicPath: '/',
+              limit: 8000,
             },
-            {loader: 'img-loader'},
-          ],
+           }],
+           
         },
       ],
     },

@@ -1,7 +1,8 @@
 .wallet-section {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding-top: 110px;
+  margin-top: 110px;
   // Coins-block
   @import "__coins-block";
   // Action-block
