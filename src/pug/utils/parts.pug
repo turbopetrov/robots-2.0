@@ -1,7 +1,7 @@
 mixin parts(svg__id, parts__disable="")
-    label.parts__item
-            input.checkbox__input(type="checkbox")
-            span.checkbox__fake-checkbox(class= parts__disable)
+    label.parts
+            input.parts__checkbox(type="checkbox")
+            span.parts__fake-checkbox(class= parts__disable)
                 include ./parts__img.pug
                 +robo-part(svg__id)
                 
