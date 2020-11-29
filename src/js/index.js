@@ -54,8 +54,7 @@ $getCoinsBtn.on('click', ()=>{
     ($coinsCheckbox.is(':checked'))? 
     getFiveCoins():getOneCoins();          
 });
-function addPart(partName){
-    
+function addPart(partName){    
    $('.storage-card').each(function(){
        let sellValue = parseInt($(this).find('.sellValue').text())
     if($(this).children('.partName').text() == partName){
@@ -68,13 +67,22 @@ function buyPart(buyCost, partName){
     addPart(partName);    
 }
 
+function sellPart(storageCard, quantity){
+    let sellValue = storageCard.find('.sellValue').text();
+    if(sellValue>0){
+        storageCard.find('.sellValue').text(sellValue-1);  
+        addCoins(quantity);
+    }
+    else alert('Нет на складе');
+}
+
 //-----------------shop-section------------//
 
 const $buyBtn = $('.buyBtn');
 $buyBtn.on('click', function(){
-    const shopCard = $(this).parent();
+    const $shopCard = $(this).parent();
     let partName = $(this).parent().children('.partName').text();
-    const buyCost = parseInt(shopCard.children('.buyCost').text().match(/\d+/));
+    const buyCost = parseInt($shopCard.children('.buyCost').text().match(/\d+/));
     (buyCost>coinsQuantity)?
     alert('Не хватает монет'):buyPart(buyCost, partName);
           
@@ -82,6 +90,13 @@ $buyBtn.on('click', function(){
 
 // -------------storage-section ------------//
 const $sellBtn = $('.sellBtn');
+$sellBtn.on('click', function(){
+    const $storageCard = $(this).parent();
+    const sellCost = parseInt($storageCard.children('.sellCost').text().match(/\d+/));
+    sellPart($storageCard, sellCost);
+    
+    
+})
 
  
 
