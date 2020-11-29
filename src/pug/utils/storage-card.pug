@@ -1,7 +1,9 @@
-mixin storage-card(card__title="Товар", card__cost="Несколько", card__values="0")    
+mixin storage-card(card__title="Товар", card__cost="Несколько")    
     .storage-card
-        h3.storage-card__heading.heading_sm= card__title    
-        p.storage-card__paragraph.paragraph_sm= "Стоимость "+card__cost+" монет"
-        h3.storage-card__heading.heading_sm= card__values+" шт"       
-        button.btn.btn_type2_normal.storage-card__btn.
+        h3.partName.storage-card__heading.heading_sm= card__title    
+        p.sellCost.storage-card__paragraph.paragraph_sm= "Стоимость "+card__cost+" монет"
+        h3.storage-card__heading.heading_sm
+            span.sellValue= "0"
+            =" шт"                       
+        button.sellBtn.btn.btn_type2_normal.storage-card__btn.
             Продать

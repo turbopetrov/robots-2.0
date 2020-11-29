@@ -1,5 +1,5 @@
-import $ from 'jquery';
-//btns
+import $, { contains } from 'jquery';
+// btns
 const $getCoinsBtn = $('#getCoinsBtn');
 
 
@@ -40,33 +40,48 @@ function addCoins(quantity){
     $coin.clone(true).appendTo($wallet);
     }
     coinsQuantity+=quantity;
-}
+    changeWalletMessage()
+};
 function removeCoins(quantity){
     for(let i=0; i<quantity; i++){
     $wallet.children('img:last').remove();
     }
     coinsQuantity-=quantity;
-}
+    changeWalletMessage();
+};
 
 $getCoinsBtn.on('click', ()=>{
     ($coinsCheckbox.is(':checked'))? 
-    getFiveCoins():getOneCoins();
-    changeWalletMessage()
-    console.log(coinsQuantity);     
-})
+    getFiveCoins():getOneCoins();          
+});
+function addPart(partName){
+    
+   $('.storage-card').each(function(){
+       let sellValue = parseInt($(this).find('.sellValue').text())
+    if($(this).children('.partName').text() == partName){
+        $(this).find('.sellValue').text(sellValue+1);
+        }
+    }); 
+}
+function buyPart(buyCost, partName){
+    removeCoins(buyCost);
+    addPart(partName);    
+}
 
 //-----------------shop-section------------//
+
 const $buyBtn = $('.buyBtn');
 $buyBtn.on('click', function(){
     const shopCard = $(this).parent();
+    let partName = $(this).parent().children('.partName').text();
     const buyCost = parseInt(shopCard.children('.buyCost').text().match(/\d+/));
-    if(buyCost>coinsQuantity){
-        alert('Не хватает монет');        
-    }
-    else{      
-        removeCoins(buyCost);
-        changeWalletMessage();
-    }
-    console.log(coinsQuantity);
-})
+    (buyCost>coinsQuantity)?
+    alert('Не хватает монет'):buyPart(buyCost, partName);
+          
+});
+
+// -------------storage-section ------------//
+const $sellBtn = $('.sellBtn');
+
+ 
 
