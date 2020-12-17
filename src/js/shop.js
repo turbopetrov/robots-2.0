@@ -1,17 +1,17 @@
 import $ from 'jquery';
-import { app } from './index';
+import ShopCard from './shopCard';
 
-export default class ShopCard {
-  constructor(type) {
-    this.dom = $(`.shop-card[data-type =${type}]`);
-    this.btn = this.dom.children('.buyBtn');
-    this.cost = parseInt(this.dom.children('.buyCost').text().match(/\d+/));
-  }
 
-  buyPart() {
-    this.btn.on('click', () => {
-      (this.cost > app.wallet.ballance)
-        ? alert('Не хватает монет') : app.wallet.removeCoins(this.cost);
-    });
-  }
+export default class Shop {
+  constructor() {
+    this.catalog = [
+      new ShopCard('biomech','7'),
+      new ShopCard('processor', '5'),
+      new ShopCard('soul', '25'),
+    ]        
+  } 
+  
 }
+// this.biomech = new ShopCard('biomech','5');
+    // this.processor = new ShopCard('processor', '7');
+    // this.soul = new ShopCard('soul', '25');

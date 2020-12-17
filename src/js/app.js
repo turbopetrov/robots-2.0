@@ -1,21 +1,27 @@
 import Wallet from './wallet';
-import ShopCard from './shop';
-
+import Shop from './shop';
+import { app } from '.';
 export default class App {
   constructor() {
     this.wallet = new Wallet(1);
-    this.shopCardBiomech = new ShopCard('biomech');
-    this.shopCardProcessor = new ShopCard('processor');
-    this.shopCardSoul = new ShopCard('soul');
+    this.shop = new Shop;
   }
 
   getCoins() {
-    this.wallet.getCoins();
+    this.wallet.btn.on('click', () => {
+      (this.wallet.checkbox.is(':checked'))
+        ? this.wallet.addCoins(5) : this.wallet.addCoins(1);
+    });
   }
-
+  
   buyPart() {
-    this.shopCardBiomech.buyPart();
-    this.shopCardProcessor.buyPart();
-    this.shopCardSoul.buyPart();
+    for (let i in this.shop.catalog){
+      let card = this.shop.catalog[i]
+      card.buyBtn.on('click',()=>{
+        (app.wallet.ballance<card.cost)
+          ?alert('не хватает монет'):
+          app.wallet.removeCoins(card.cost);
+      });
+    }
   }
 }

@@ -36,16 +36,9 @@ export default class Wallet {
 
   removeCoins(quantity) {
     for (let i = 0; i < quantity; i++) {
-      this.coin.clone(true).appendTo(this.coinsBlock);
+      this.coinsBlock.children('img:last').remove();
     }
     this.ballance -= quantity;
     this.changeMessage();
-  }
-
-  getCoins() {
-    this.btn.on('click', () => {
-      (this.checkbox.is(':checked'))
-        ? this.addCoins(5) : this.addCoins(1);
-    });
-  }
+  }  
 }
