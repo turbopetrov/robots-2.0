@@ -1,6 +1,5 @@
-import { format } from 'path';
-import getCoins from './wallet/getCoins';
-import getPart from './shop/getPart';
-import removePart from './storage/removePart';
+import App from './app';
 
-
+export const app = new App();
+app.getCoins();
+app.buyPart();

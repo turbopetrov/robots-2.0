@@ -1,5 +1,5 @@
-mixin shop-card(card__url="#", card__title="Товар", card__cost="Несколько")
-    .shop-card
+mixin shop-card(card__url="#", card__title="Товар", card__cost="Несколько", type)
+    .shop-card(data-type = type)
         .shop-card__img-container
             img.shop-card__img(src= card__url, alt= card__title)
         h3.partName.shop-card__heading.heading_sm= card__title    
