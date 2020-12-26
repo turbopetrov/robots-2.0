@@ -1,10 +1,11 @@
 import $ from 'jquery';
 export default class StorageCard {
-    constructor(type) {
+    constructor(type, cost) {
         this.type = type;
         this.partValue = 0;
+        this.cost = cost
         this.dom = $(`.storage-card[data-type =${type}]`);
-        this.buyBtn = this.dom.children('.sellBtn');
+        this.sellBtn = this.dom.children('.sellBtn');
     }
     addPart() {
         this.partValue+=1;

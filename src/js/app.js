@@ -23,15 +23,25 @@ export default class App {
       shopCard.buyBtn.on('click',()=>{
         if (app.wallet.ballance < shopCard.cost){
           alert('не хватает монет')
-        }
-        else{
-          app.wallet.removeCoins(shopCard.cost);
-          app.storage.catalog.[type].addPart();          
-        }   
-          
-          
-          
+        } else{
+            app.wallet.removeCoins(shopCard.cost);
+            app.storage.catalog[type].addPart();          
+        }          
       });
     }    
+  }
+  sellPart(){
+    for(let k in this.storage.catalog){
+      let storageCard = this.storage.catalog[k];
+      let type = storageCard.type;
+      storageCard.sellBtn.on('click', ()=>{
+        if(storageCard.partValue > 0){
+          app.wallet.addCoins(storageCard.cost);
+          storageCard.removePart();
+        } else{
+          alert('недостаточно деталей на складе');
+        }
+      })
+    }
   }
 }
