@@ -5,10 +5,5 @@ export default class ShopCard {
         this.cost = parseInt(cost);
         this.dom = $(`.shop-card[data-type =${type}]`);
         this.buyBtn = this.dom.children('.buyBtn');
-    }
-    showType(){
-        this.buyBtn.on('click', ()=>{
-            console.log(this.cost);
-        })
-    }
+    }    
 }

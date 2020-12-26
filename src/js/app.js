@@ -1,10 +1,12 @@
 import Wallet from './wallet';
 import Shop from './shop';
+import Storage from './storage'
 import { app } from '.';
 export default class App {
   constructor() {
     this.wallet = new Wallet(1);
     this.shop = new Shop;
+    this.storage = new Storage;
   }
 
   getCoins() {
@@ -16,12 +18,20 @@ export default class App {
   
   buyPart() {
     for (let i in this.shop.catalog){
-      let card = this.shop.catalog[i]
-      card.buyBtn.on('click',()=>{
-        (app.wallet.ballance<card.cost)
-          ?alert('не хватает монет'):
-          app.wallet.removeCoins(card.cost);
+      let shopCard = this.shop.catalog[i]
+      let type = shopCard.type
+      shopCard.buyBtn.on('click',()=>{
+        if (app.wallet.ballance < shopCard.cost){
+          alert('не хватает монет')
+        }
+        else{
+          app.wallet.removeCoins(shopCard.cost);
+          app.storage.catalog.[type].addPart();          
+        }   
+          
+          
+          
       });
-    }
+    }    
   }
 }

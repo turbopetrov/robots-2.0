@@ -4,5 +4,5 @@ import ShopCard from './shopCard';
 export const app = new App();
 app.getCoins();
 app.buyPart();
-console.log(app.shop.catalog);
+
 

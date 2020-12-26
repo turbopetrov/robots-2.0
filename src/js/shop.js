@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import ShopCard from './shopCard';
 
 
@@ -12,6 +11,3 @@ export default class Shop {
   } 
   
 }
-// this.biomech = new ShopCard('biomech','5');
-    // this.processor = new ShopCard('processor', '7');
-    // this.soul = new ShopCard('soul', '25');

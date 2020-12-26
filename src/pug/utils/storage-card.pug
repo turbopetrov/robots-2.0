@@ -1,5 +1,5 @@
-mixin storage-card(card__title="Товар", card__cost="Несколько")    
-    .storage-card
+mixin storage-card(card__title="Товар", card__cost="Несколько", type)    
+    .storage-card(data-type = type)
         h3.partName.storage-card__heading.heading_sm= card__title    
         p.sellCost.storage-card__paragraph.paragraph_sm= "Стоимость "+card__cost+" монет"
         h3.storage-card__heading.heading_sm
