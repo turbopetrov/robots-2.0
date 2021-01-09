@@ -40,5 +40,5 @@ export default class Wallet {
     }
     this.ballance -= quantity;
     this.changeMessage();
-  }  
+  }
 }

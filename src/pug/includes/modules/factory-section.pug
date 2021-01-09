@@ -8,24 +8,35 @@ section.factory-section
                 Производство
         .factory-section__radio-block
             include ../../utils/radio.pug
-            +radio("Тип биоробота", "type", "FrontEnd", "Design")
+            +radio("Тип биоробота", "type", "Front", "Design")
             +radio("Стабилизатор", "gender", "Male", "Female")
         .factory-section__parts-block
             include ../../utils/parts.pug
-            .factory-section__parts-container.biomech
+            .factory-section__parts-container.js-factory-bar(data-type='biomech')
                 +parts("#1","_disable")
                 +parts("#1","_disable")
                 +parts("#1","_disable")
                 +parts("#1","_disable")
-            .factory-section__parts-container.processor
+            .factory-section__parts-container.js-factory-bar(data-type='processor')
                 +parts("#2","_disable")
                 +parts("#2","_disable")
                 +parts("#2","_disable")
                 +parts("#2","_disable")
-            .factory-section__parts-container.soul            
+            .factory-section__parts-container.js-factory-bar(data-type='soul')            
                 +parts("#3","_disable")            
         .factory-section__img-block
-            img.factory-section__robot-img(src="./img/robot_inactive.png" alt="Your biorobot")
+            img.factory-section__robot-img(src="./img/FrontMale_disable.png" data-robotype="fm-disable" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/FrontMale_active.png" data-robotype="fm-active" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/FrontMale_ready.png" data-robotype="fm-ready" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/FrontFemale_disable.png" data-robotype="ff-disable" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/FrontFemale_active.png" data-robotype="ff-active" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/FrontFemale_ready.png" data-robotype="ff-ready" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/DesignerMale_disable.png" data-robotype="dm-disable" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/DesignerMale_active.png" data-robotype="dm-active" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/DesignerMale_ready.png" data-robotype="dm-ready" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/DesignerFemale_disable.png" data-robotype="df-disable" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/DesignerFemale_active.png" data-robotype="df-active" alt="Your biorobot")
+            img.factory-section__robot-img.hiden(src="./img/DesignerFemale_ready.png" data-robotype="df-ready" alt="Your biorobot")
         .factory-section__btn-block
             button.btn.btn_type3_disable.factory-section__btn.
                 Произвести за 10 монет

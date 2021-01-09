@@ -5,6 +5,7 @@
   display: flex;
   .radio__label {
     display: flex;
+    cursor: pointer;
   }
   .radio__label + .radio__label {
     margin-left: 35px;
