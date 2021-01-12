@@ -65,7 +65,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ESLintPlugin(),
+    // new ESLintPlugin(),
     new HtmlWebpackPlugin(
       {
         filename: 'index.html',
