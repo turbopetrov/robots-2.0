@@ -14,8 +14,8 @@ export default class StorageCard {
     this.dom.find('.partValue').text(this.partValue);
   }
 
-  removePart() {
-    this.partValue -= 1;
+  removePart(quantity) {
+    this.partValue -= quantity;
     this.dom.find('.partValue').text(this.partValue);
   }
 }

@@ -44,7 +44,7 @@ export default class App {
       storageCard.sellBtn.on('click', () => {
         if (storageCard.partValue > 0) {
           this.wallet.addCoins(storageCard.cost);
-          storageCard.removePart();
+          storageCard.removePart(1);
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
         } else {
           alert('недостаточно деталей на складе');
@@ -87,6 +87,16 @@ export default class App {
   }
 
   buildRobot() {
-    this.factory.buildBtn.on('click', () => { console.log('test'); });
+    this.factory.buildBtn.on('click', () => {
+      $('.js-checkBox').prop('checked', false);
+      this.factory.disableBtn();
+      this.robots.changeRoboImage(this.robots.selectedRobot.imgReady);
+      for (let i in this.storage.catalog){
+        const card =this.storage.catalog[i];
+        card.removePart(this.factory.catalog[i].partCounter);
+      }
+
+
+    });
   }
 }
