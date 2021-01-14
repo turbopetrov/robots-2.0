@@ -17,7 +17,7 @@ export default class App {
   getCoins() {
     this.wallet.btn.on('click', () => {
       (this.wallet.checkbox.is(':checked'))
-        ? this.wallet.addCoins(5) : this.wallet.addCoins(1);
+        ? this.wallet.addCoins(5) : this.wallet.addCoins(99);
     });
   }
 
@@ -53,10 +53,40 @@ export default class App {
     }
   }
 
-  changeRoboType() {
+  selectRoboType() {
     $('.radio__input').on('click', () => {
       const userSelect = this.robots.userSelect();
-      this.robots.changeRoboImage(this.robots.catalog[userSelect].imgDisable);
+      this.robots.changeSelectedRobot(this.robots.catalog[userSelect].imgDisable);
+      $('.js-checkBox').prop('checked', false);
+      this.factory.disableBtn();
     });
+  }
+
+  activateBuildBtn() {
+    $('.js-checkBox').on('click', () => {
+      for (const i in this.factory.catalog) {
+        const barItem = this.factory.catalog[i];
+        barItem.checkedPartCounter();
+        if (barItem.partCounter >= this.robots.selectedRobot.cost[barItem.type]) {
+          barItem.readyStatus = true;
+        } else barItem.readyStatus = false;
+        // Добавить метод для каждой детали, который в зависмости от тру фолз будет менять мессадж
+      }
+      const arr = [];
+      for (const i in this.factory.catalog) {
+        arr.push(this.factory.catalog[i].readyStatus);
+      }
+      if (arr.every((i) => i == true)) {
+        this.factory.activateBtn();
+        this.robots.changeRoboImage(this.robots.selectedRobot.imgActive);
+      } else {
+        this.factory.disableBtn();
+        this.robots.changeRoboImage(this.robots.selectedRobot.imgDisable);
+      }
+    });
+  }
+
+  buildRobot() {
+    this.factory.buildBtn.on('click', () => { console.log('test'); });
   }
 }

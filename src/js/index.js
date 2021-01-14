@@ -4,4 +4,6 @@ const app = new App();
 app.getCoins();
 app.buyPart();
 app.sellPart();
-app.changeRoboType();
+app.selectRoboType();
+app.activateBuildBtn();
+app.buildRobot();
