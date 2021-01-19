@@ -14,10 +14,12 @@ export default class Factory {
   activateBtn() {
     this.buildBtn.removeClass('btn_type3_disable');
     this.buildBtn.addClass('btn_type3_normal');
+    this.buildBtn.attr('disabled', false);
   }
 
   disableBtn() {
     this.buildBtn.removeClass('btn_type3_normal');
     this.buildBtn.addClass('btn_type3_disable');
+    this.buildBtn.attr('disabled', true);
   }
 }

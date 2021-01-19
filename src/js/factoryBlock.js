@@ -14,6 +14,7 @@ export default class FactoryBar {
     this.domFake.removeClass('_active');
     this.domFake.addClass('_disable');
     this.domCheck.attr('disabled', true);
+    this.domCheck.prop('checked', false);
 
     for (let i = 0; i < partQ; i++) {
       if (i > (maxPartQ - 1)) { break; }

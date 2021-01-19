@@ -17,7 +17,8 @@ export default class App {
   getCoins() {
     this.wallet.btn.on('click', () => {
       (this.wallet.checkbox.is(':checked'))
-        ? this.wallet.addCoins(5) : this.wallet.addCoins(99);
+        ? this.wallet.addCoins(50) : this.wallet.addCoins(1);
+      this.changeBuildBtnStatus();
     });
   }
 
@@ -27,11 +28,12 @@ export default class App {
       const { type } = shopCard;
       shopCard.buyBtn.on('click', () => {
         if (this.wallet.ballance < shopCard.cost) {
-          alert('не хватает монет');
+          $('.popup_shop').removeClass('hiden');
         } else {
           this.wallet.removeCoins(shopCard.cost);
           this.storage.catalog[type].addPart();
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
+          this.changeBuildBtnStatus();
         }
       });
     }
@@ -46,8 +48,9 @@ export default class App {
           this.wallet.addCoins(storageCard.cost);
           storageCard.removePart(1);
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
+          this.changeBuildBtnStatus();
         } else {
-          alert('недостаточно деталей на складе');
+          $('.popup_storage').removeClass('hiden');
         }
       });
     }
@@ -62,28 +65,30 @@ export default class App {
     });
   }
 
-  activateBuildBtn() {
-    $('.js-checkBox').on('click', () => {
-      for (const i in this.factory.catalog) {
-        const barItem = this.factory.catalog[i];
-        barItem.checkedPartCounter();
-        if (barItem.partCounter >= this.robots.selectedRobot.cost[barItem.type]) {
-          barItem.readyStatus = true;
-        } else barItem.readyStatus = false;
-        // Добавить метод для каждой детали, который в зависмости от тру фолз будет менять мессадж
-      }
-      const arr = [];
-      for (const i in this.factory.catalog) {
-        arr.push(this.factory.catalog[i].readyStatus);
-      }
-      if (arr.every((i) => i == true)) {
-        this.factory.activateBtn();
-        this.robots.changeRoboImage(this.robots.selectedRobot.imgActive);
-      } else {
-        this.factory.disableBtn();
-        this.robots.changeRoboImage(this.robots.selectedRobot.imgDisable);
-      }
-    });
+  changeBuildBtnStatus() {
+    for (const i in this.factory.catalog) {
+      const barItem = this.factory.catalog[i];
+      barItem.checkedPartCounter();
+      if (barItem.partCounter >= this.robots.selectedRobot.cost[barItem.type]) {
+        barItem.readyStatus = true;
+      } else barItem.readyStatus = false;
+      // Добавить метод для каждой детали, который в зависмости от тру фолз будет менять мессадж
+    }
+    const arr = [];
+    for (const i in this.factory.catalog) {
+      arr.push(this.factory.catalog[i].readyStatus);
+    }
+    if (arr.every((i) => i == true) && this.wallet.ballance >= 10) {
+      this.factory.activateBtn();
+      this.robots.changeRoboImage(this.robots.selectedRobot.imgActive);
+    } else {
+      this.factory.disableBtn();
+      this.robots.changeRoboImage(this.robots.selectedRobot.imgDisable);
+    }
+  }
+
+  installPart() {
+    $('.js-checkBox').on('click', () => { this.changeBuildBtnStatus(); });
   }
 
   buildRobot() {
@@ -91,12 +96,22 @@ export default class App {
       $('.js-checkBox').prop('checked', false);
       this.factory.disableBtn();
       this.robots.changeRoboImage(this.robots.selectedRobot.imgReady);
-      for (let i in this.storage.catalog){
-        const card =this.storage.catalog[i];
+      for (const i in this.storage.catalog) {
+        const card = this.storage.catalog[i];
         card.removePart(this.factory.catalog[i].partCounter);
       }
+      this.wallet.removeCoins(10);
+      for (const k in this.factory.catalog) {
+        const barItem = this.factory.catalog[k];
+        barItem.changePartStatus(this.storage.catalog[k].partValue);
+      }
+      $('.popup_factory').removeClass('hiden');
+    });
+  }
 
-
+  closePopup() {
+    $('.js-closePopup').on('click', function () { // Почему, есл и пишем функцию вида ()=>{} this определяется как app?
+      $(this).parents('.popup').addClass('hiden');
     });
   }
 }

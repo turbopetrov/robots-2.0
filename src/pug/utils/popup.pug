@@ -1,0 +1,52 @@
+mixin popup_wallet
+  .popup.popup_wallet.hiden
+    .popup__body
+      .popup__content
+        .popup__img-block
+          img(src="../../img/coin.png", alt="coin")
+        .popup__text-block
+          h3.popup__title.heading_md.
+            Количество монет ограничено
+          p.popup__paragraph.heading_sm.
+            Вы не можете нацыганить более 100 монет biorobo
+        .popup__close-btn.js-closePopup
+
+mixin popup_storage
+  .popup.popup_storage.hiden
+      .popup__body
+        .popup__content
+          .popup__img-block
+            img(src="../../img/coin.png", alt="coin")
+          .popup__text-block
+            h3.popup__title.heading_md.
+              Недостаточно деталей
+            p.popup__paragraph.heading_sm.
+              На Вашем складе нет деталей этого типа
+          .popup__close-btn.js-closePopup
+
+mixin popup_factory
+  .popup.popup_factory.hiden
+    .popup__body
+      .popup__content
+        .popup__img-block
+          img(src="../../img/coin.png", alt="coin")
+        .popup__text-block
+          h3.popup__title.heading_md.
+            Биоробот произведен
+          p.popup__paragraph.heading_sm.
+            Поздравляем!
+            Вы произвели биоробота
+        .popup__close-btn.js-closePopup
+
+mixin popup_shop
+  .popup.popup_shop.hiden
+      .popup__body
+        .popup__content
+          .popup__img-block
+            img(src="../../img/coin.png", alt="coin")
+          .popup__text-block
+            h3.popup__title.heading_md.
+              Недостаточно монет
+            p.popup__paragraph.heading_sm.
+              Нехватает монет для покупки детали этого типа
+          .popup__close-btn.js-closePopup

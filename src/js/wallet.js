@@ -24,7 +24,7 @@ export default class Wallet {
 
   addCoins(quantity) {
     if ((this.ballance + quantity) > 100) {
-      alert('Столько в кошелек не влзет');
+      $('.popup_wallet').removeClass('hiden');
     } else {
       for (let i = 0; i < quantity; i++) {
         this.coin.clone(true).appendTo(this.coinsBlock);

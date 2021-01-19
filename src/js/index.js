@@ -5,5 +5,6 @@ app.getCoins();
 app.buyPart();
 app.sellPart();
 app.selectRoboType();
-app.activateBuildBtn();
+app.installPart();
 app.buildRobot();
+app.closePopup();
