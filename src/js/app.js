@@ -20,7 +20,7 @@ export default class App {
         ? this.wallet.addCoins(5) : this.wallet.addCoins(1);
       this.activateParts();
       this.changeBuildBtnStatus();
-      this.factory.changeMessage(this.factoryMessage())
+      this.factory.changeMessage(this.factoryMessage());
     });
   }
 
@@ -37,7 +37,7 @@ export default class App {
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
           this.activateParts();
           this.changeBuildBtnStatus();
-          this.factory.changeMessage(this.factoryMessage())
+          this.factory.changeMessage(this.factoryMessage());
         }
       });
     }
@@ -54,7 +54,7 @@ export default class App {
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
           this.activateParts();
           this.changeBuildBtnStatus();
-          this.factory.changeMessage(this.factoryMessage())
+          this.factory.changeMessage(this.factoryMessage());
         } else {
           $('.popup_storage').removeClass('hiden');
         }
@@ -77,7 +77,7 @@ export default class App {
       barItem.checkedPartCounter();
       if (barItem.partCounter >= this.robots.selectedRobot.cost[barItem.type]) {
         barItem.readyStatus = true;
-      } else barItem.readyStatus = false;     
+      } else barItem.readyStatus = false;
     }
   }
 
@@ -95,7 +95,7 @@ export default class App {
     }
   }
 
-  factoryMessage() { 
+  factoryMessage() {
     const messageArr = [];
     const basicMessage = 'Для производства биоробота вам не хватает ';
     for (const i in this.factory.catalog) {
@@ -107,18 +107,18 @@ export default class App {
     if (this.wallet.message() !== null) {
       messageArr.push(this.wallet.message());
     }
-    
-    switch(messageArr.length){
+
+    switch (messageArr.length) {
       case 0:
-        return 'Можно произвести биоробота'
+        return 'Можно произвести биоробота';
       case 1:
         return basicMessage + messageArr[0];
       case 2:
-        return basicMessage + messageArr[0] + ' и ' + messageArr[1];
+        return `${basicMessage + messageArr[0]} и ${messageArr[1]}`;
       case 3:
-        return basicMessage + messageArr[0] + ', ' + messageArr[1] + ' и ' + messageArr[2];
+        return `${basicMessage + messageArr[0]}, ${messageArr[1]} и ${messageArr[2]}`;
       case 4:
-        return basicMessage + messageArr[0] + ', ' + messageArr[1] + ', ' + messageArr[2] + ' и ' + messageArr[3];
+        return `${basicMessage + messageArr[0]}, ${messageArr[1]}, ${messageArr[2]} и ${messageArr[3]}`;
     }
   }
 
@@ -127,7 +127,6 @@ export default class App {
       this.activateParts();
       this.changeBuildBtnStatus();
       this.factory.changeMessage(this.factoryMessage());
-      
     });
   }
 
@@ -145,7 +144,7 @@ export default class App {
         const barItem = this.factory.catalog[k];
         barItem.changePartStatus(this.storage.catalog[k].partValue);
       }
-      this.factory.changeMessage(this.factoryMessage())
+      this.factory.changeMessage(this.factoryMessage());
       $('.popup_factory').removeClass('hiden');
     });
   }

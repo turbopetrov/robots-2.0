@@ -6,13 +6,13 @@ export default class Storage {
       biomech: new StorageCard('biomech', 5),
       processor: new StorageCard('processor', 3),
       soul: new StorageCard('soul', 15),
-    }
+    };
   }
-  changeBtnStatus(type){
-    if(this.catalog[type].partValue <= 0){
+
+  changeBtnStatus(type) {
+    if (this.catalog[type].partValue <= 0) {
       this.catalog[type].disableBtn();
-    }
-    else{
+    } else {
       this.catalog[type].activateBtn();
     }
   }

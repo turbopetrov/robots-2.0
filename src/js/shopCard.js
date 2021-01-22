@@ -7,6 +7,7 @@ export default class ShopCard {
     this.dom = $(`.shop-card[data-type =${type}]`);
     this.buyBtn = this.dom.children('.buyBtn');
   }
+
   activateBtn() {
     this.buydBtn.removeClass('btn_type1_disable');
     this.buyBtn.addClass('btn_type1_normal');
