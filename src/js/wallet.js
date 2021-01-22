@@ -41,4 +41,14 @@ export default class Wallet {
     this.ballance -= quantity;
     this.changeMessage();
   }
+  message() {
+    let coinsNeed = (10 - this.ballance);
+    if(coinsNeed<=0){
+      return null;
+    }
+    else if(coinsNeed == 1){
+      return ' 1 монеты';
+    }
+    else return ' монет';
+  }
 }

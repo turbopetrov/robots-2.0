@@ -18,6 +18,7 @@ export default class App {
     this.wallet.btn.on('click', () => {
       (this.wallet.checkbox.is(':checked'))
         ? this.wallet.addCoins(50) : this.wallet.addCoins(1);
+      this.activateParts();
       this.changeBuildBtnStatus();
     });
   }
@@ -33,6 +34,7 @@ export default class App {
           this.wallet.removeCoins(shopCard.cost);
           this.storage.catalog[type].addPart();
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
+          this.activateParts();
           this.changeBuildBtnStatus();
         }
       });
@@ -48,6 +50,7 @@ export default class App {
           this.wallet.addCoins(storageCard.cost);
           storageCard.removePart(1);
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
+          this.activateParts();
           this.changeBuildBtnStatus();
         } else {
           $('.popup_storage').removeClass('hiden');
@@ -65,15 +68,17 @@ export default class App {
     });
   }
 
-  changeBuildBtnStatus() {
+  activateParts() {
     for (const i in this.factory.catalog) {
       const barItem = this.factory.catalog[i];
       barItem.checkedPartCounter();
       if (barItem.partCounter >= this.robots.selectedRobot.cost[barItem.type]) {
         barItem.readyStatus = true;
-      } else barItem.readyStatus = false;
+      } else barItem.readyStatus = false;      
       // Добавить метод для каждой детали, который в зависмости от тру фолз будет менять мессадж
     }
+  }
+  changeBuildBtnStatus(){
     const arr = [];
     for (const i in this.factory.catalog) {
       arr.push(this.factory.catalog[i].readyStatus);
@@ -86,9 +91,27 @@ export default class App {
       this.robots.changeRoboImage(this.robots.selectedRobot.imgDisable);
     }
   }
+  factoryMessage() {//у души неправильное окончание
+    let messageArr = [];
+    for (let i in this.factory.catalog){     
+      const factoryBar = this.factory.catalog[i];
+      if(factoryBar.message(this.robots.selectedRobot.cost[factoryBar.type]) !== null){
+        messageArr.push(factoryBar.message(this.robots.selectedRobot.cost[factoryBar.type]))
+      }      
+    }
+    if (this.wallet.message() !==null){
+        messageArr.push(this.wallet.message());
+      }
+    return messageArr
+  }
 
   installPart() {
-    $('.js-checkBox').on('click', () => { this.changeBuildBtnStatus(); });
+    $('.js-checkBox').on('click', () => {
+      this.activateParts(); 
+      this.changeBuildBtnStatus();
+      // this.factory.changeMessage();
+      console.log(this.factoryMessage()); 
+    });
   }
 
   buildRobot() {

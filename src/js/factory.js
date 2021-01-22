@@ -4,9 +4,9 @@ import FactoryBar from './factoryBlock';
 export default class Factory {
   constructor() {
     this.catalog = {
-      biomech: new FactoryBar('biomech'),
-      processor: new FactoryBar('processor'),
-      soul: new FactoryBar('soul'),
+      biomech: new FactoryBar('biomech', 'биомеханизм'),
+      processor: new FactoryBar('processor', 'процессор'),
+      soul: new FactoryBar('soul', 'души'),
     };
     this.buildBtn = $('.js-buildBtn');
   }
@@ -21,5 +21,9 @@ export default class Factory {
     this.buildBtn.removeClass('btn_type3_normal');
     this.buildBtn.addClass('btn_type3_disable');
     this.buildBtn.attr('disabled', true);
+  }
+  
+  changeMessage(message) {
+    $('.js-factoryMessage').text(message);
   }
 }
