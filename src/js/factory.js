@@ -22,7 +22,7 @@ export default class Factory {
     this.buildBtn.addClass('btn_type3_disable');
     this.buildBtn.attr('disabled', true);
   }
-  
+
   changeMessage(message) {
     $('.js-factoryMessage').text(message);
   }

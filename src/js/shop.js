@@ -8,4 +8,12 @@ export default class Shop {
       new ShopCard('soul', '25'),
     ];
   }
+  changeBtnStatus(type, ballance){
+    if(this.catalog[type].cost > ballance){
+      this.catalog[type].disableBtn();
+    }
+    else{
+      this.catalog[type].activateBtn();
+    }
+  }
 }

@@ -17,9 +17,10 @@ export default class App {
   getCoins() {
     this.wallet.btn.on('click', () => {
       (this.wallet.checkbox.is(':checked'))
-        ? this.wallet.addCoins(50) : this.wallet.addCoins(1);
+        ? this.wallet.addCoins(5) : this.wallet.addCoins(1);
       this.activateParts();
       this.changeBuildBtnStatus();
+      this.factory.changeMessage(this.factoryMessage())
     });
   }
 
@@ -36,6 +37,7 @@ export default class App {
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
           this.activateParts();
           this.changeBuildBtnStatus();
+          this.factory.changeMessage(this.factoryMessage())
         }
       });
     }
@@ -52,6 +54,7 @@ export default class App {
           this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
           this.activateParts();
           this.changeBuildBtnStatus();
+          this.factory.changeMessage(this.factoryMessage())
         } else {
           $('.popup_storage').removeClass('hiden');
         }
@@ -74,16 +77,16 @@ export default class App {
       barItem.checkedPartCounter();
       if (barItem.partCounter >= this.robots.selectedRobot.cost[barItem.type]) {
         barItem.readyStatus = true;
-      } else barItem.readyStatus = false;      
-      // Добавить метод для каждой детали, который в зависмости от тру фолз будет менять мессадж
+      } else barItem.readyStatus = false;     
     }
   }
-  changeBuildBtnStatus(){
+
+  changeBuildBtnStatus() {
     const arr = [];
     for (const i in this.factory.catalog) {
       arr.push(this.factory.catalog[i].readyStatus);
     }
-    if (arr.every((i) => i == true) && this.wallet.ballance >= 10) {
+    if (arr.every((i) => i === true) && this.wallet.ballance >= 10) {
       this.factory.activateBtn();
       this.robots.changeRoboImage(this.robots.selectedRobot.imgActive);
     } else {
@@ -91,26 +94,40 @@ export default class App {
       this.robots.changeRoboImage(this.robots.selectedRobot.imgDisable);
     }
   }
-  factoryMessage() {//у души неправильное окончание
-    let messageArr = [];
-    for (let i in this.factory.catalog){     
+
+  factoryMessage() { 
+    const messageArr = [];
+    const basicMessage = 'Для производства биоробота вам не хватает ';
+    for (const i in this.factory.catalog) {
       const factoryBar = this.factory.catalog[i];
-      if(factoryBar.message(this.robots.selectedRobot.cost[factoryBar.type]) !== null){
-        messageArr.push(factoryBar.message(this.robots.selectedRobot.cost[factoryBar.type]))
-      }      
-    }
-    if (this.wallet.message() !==null){
-        messageArr.push(this.wallet.message());
+      if (factoryBar.message(this.robots.selectedRobot.cost[factoryBar.type]) !== null) {
+        messageArr.push(factoryBar.message(this.robots.selectedRobot.cost[factoryBar.type]));
       }
-    return messageArr
+    }
+    if (this.wallet.message() !== null) {
+      messageArr.push(this.wallet.message());
+    }
+    
+    switch(messageArr.length){
+      case 0:
+        return 'Можно произвести биоробота'
+      case 1:
+        return basicMessage + messageArr[0];
+      case 2:
+        return basicMessage + messageArr[0] + ' и ' + messageArr[1];
+      case 3:
+        return basicMessage + messageArr[0] + ', ' + messageArr[1] + ' и ' + messageArr[2];
+      case 4:
+        return basicMessage + messageArr[0] + ', ' + messageArr[1] + ', ' + messageArr[2] + ' и ' + messageArr[3];
+    }
   }
 
   installPart() {
     $('.js-checkBox').on('click', () => {
-      this.activateParts(); 
+      this.activateParts();
       this.changeBuildBtnStatus();
-      // this.factory.changeMessage();
-      console.log(this.factoryMessage()); 
+      this.factory.changeMessage(this.factoryMessage());
+      
     });
   }
 
@@ -128,6 +145,7 @@ export default class App {
         const barItem = this.factory.catalog[k];
         barItem.changePartStatus(this.storage.catalog[k].partValue);
       }
+      this.factory.changeMessage(this.factoryMessage())
       $('.popup_factory').removeClass('hiden');
     });
   }

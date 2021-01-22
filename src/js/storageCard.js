@@ -18,4 +18,15 @@ export default class StorageCard {
     this.partValue -= quantity;
     this.dom.find('.partValue').text(this.partValue);
   }
+  activateBtn() {
+    this.selldBtn.removeClass('btn_type1_disable');
+    this.sellBtn.addClass('btn_type1_normal');
+    this.sellBtn.attr('disabled', false);
+  }
+
+  disableBtn() {
+    this.sellBtn.removeClass('btn_type1_normal');
+    this.sellBtn.addClass('btn_type1_disable');
+    this.sellBtn.attr('disabled', true);
+  }
 }
