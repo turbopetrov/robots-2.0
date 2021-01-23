@@ -5,5 +5,5 @@ mixin storage-card(card__title="Товар", card__cost="Несколько", ty
         h3.storage-card__heading.heading_sm
             span.partValue= "0"
             =" шт"                       
-        button.sellBtn.btn.btn_type2_normal.storage-card__btn.
+        button.sellBtn.btn.btn_type2_disable.storage-card__btn('disabled' = true).
             Продать

@@ -13,7 +13,7 @@
 }
 .btn_type2_disable {
   color: $light-grey-color;
-  background: transparent;
+  background: $grey-color;
   border-color: $grey-color;
   cursor: not-allowed;
 }

@@ -20,3 +20,4 @@
 [0113/050211.078:ERROR:exception_snapshot_win.cc(99)] thread ID 2292 not found in process
 [0117/001243.672:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
 [0122/203242.098:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[0124/055343.353:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)

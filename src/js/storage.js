@@ -10,10 +10,7 @@ export default class Storage {
   }
 
   changeBtnStatus(type) {
-    if (this.catalog[type].partValue <= 0) {
-      this.catalog[type].disableBtn();
-    } else {
-      this.catalog[type].activateBtn();
-    }
+    (this.catalog[type].partValue > 0)
+      ? this.catalog[type].activateBtn() : this.catalog[type].disableBtn();
   }
 }

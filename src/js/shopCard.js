@@ -9,7 +9,7 @@ export default class ShopCard {
   }
 
   activateBtn() {
-    this.buydBtn.removeClass('btn_type1_disable');
+    this.buyBtn.removeClass('btn_type1_disable');
     this.buyBtn.addClass('btn_type1_normal');
     this.buyBtn.attr('disabled', false);
   }

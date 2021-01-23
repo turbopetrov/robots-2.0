@@ -20,14 +20,14 @@ export default class StorageCard {
   }
 
   activateBtn() {
-    this.selldBtn.removeClass('btn_type1_disable');
-    this.sellBtn.addClass('btn_type1_normal');
+    this.sellBtn.removeClass('btn_type2_disable');
+    this.sellBtn.addClass('btn_type2_normal');
     this.sellBtn.attr('disabled', false);
   }
 
   disableBtn() {
-    this.sellBtn.removeClass('btn_type1_normal');
-    this.sellBtn.addClass('btn_type1_disable');
+    this.sellBtn.removeClass('btn_type2_normal');
+    this.sellBtn.addClass('btn_type2_disable');
     this.sellBtn.attr('disabled', true);
   }
 }

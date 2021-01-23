@@ -18,6 +18,7 @@ export default class App {
     this.wallet.btn.on('click', () => {
       (this.wallet.checkbox.is(':checked'))
         ? this.wallet.addCoins(5) : this.wallet.addCoins(1);
+      this.shop.changeBtnStatus(this.wallet.ballance);
       this.activateParts();
       this.changeBuildBtnStatus();
       this.factory.changeMessage(this.factoryMessage());
@@ -29,16 +30,14 @@ export default class App {
       const shopCard = this.shop.catalog[i];
       const { type } = shopCard;
       shopCard.buyBtn.on('click', () => {
-        if (this.wallet.ballance < shopCard.cost) {
-          $('.popup_shop').removeClass('hiden');
-        } else {
-          this.wallet.removeCoins(shopCard.cost);
-          this.storage.catalog[type].addPart();
-          this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
-          this.activateParts();
-          this.changeBuildBtnStatus();
-          this.factory.changeMessage(this.factoryMessage());
-        }
+        this.wallet.removeCoins(shopCard.cost);
+        this.shop.changeBtnStatus(this.wallet.ballance);
+        this.storage.catalog[type].addPart();
+        this.storage.changeBtnStatus(type);
+        this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
+        this.activateParts();
+        this.changeBuildBtnStatus();
+        this.factory.changeMessage(this.factoryMessage());
       });
     }
   }
@@ -48,16 +47,14 @@ export default class App {
       const storageCard = this.storage.catalog[k];
       const { type } = storageCard;
       storageCard.sellBtn.on('click', () => {
-        if (storageCard.partValue > 0) {
-          this.wallet.addCoins(storageCard.cost);
-          storageCard.removePart(1);
-          this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
-          this.activateParts();
-          this.changeBuildBtnStatus();
-          this.factory.changeMessage(this.factoryMessage());
-        } else {
-          $('.popup_storage').removeClass('hiden');
-        }
+        this.wallet.addCoins(storageCard.cost);
+        storageCard.removePart(1);
+        this.storage.changeBtnStatus(type);
+        this.shop.changeBtnStatus(this.wallet.ballance);
+        this.factory.catalog[type].changePartStatus(this.storage.catalog[type].partValue, 4);
+        this.activateParts();
+        this.changeBuildBtnStatus();
+        this.factory.changeMessage(this.factoryMessage());
       });
     }
   }
@@ -138,12 +135,14 @@ export default class App {
       for (const i in this.storage.catalog) {
         const card = this.storage.catalog[i];
         card.removePart(this.factory.catalog[i].partCounter);
+        this.storage.changeBtnStatus(card.type);
       }
       this.wallet.removeCoins(10);
       for (const k in this.factory.catalog) {
         const barItem = this.factory.catalog[k];
         barItem.changePartStatus(this.storage.catalog[k].partValue);
       }
+      this.shop.changeBtnStatus(this.wallet.ballance);
       this.factory.changeMessage(this.factoryMessage());
       $('.popup_factory').removeClass('hiden');
     });

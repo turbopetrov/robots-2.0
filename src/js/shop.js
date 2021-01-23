@@ -9,11 +9,13 @@ export default class Shop {
     ];
   }
 
-  changeBtnStatus(type, ballance) {
-    if (this.catalog[type].cost > ballance) {
-      this.catalog[type].disableBtn();
-    } else {
-      this.catalog[type].activateBtn();
+  changeBtnStatus(ballance) {
+    for (const y in this.catalog) {
+      if (this.catalog[y].cost > ballance) {
+        this.catalog[y].disableBtn();
+      } else {
+        this.catalog[y].activateBtn();
+      }
     }
   }
 }
